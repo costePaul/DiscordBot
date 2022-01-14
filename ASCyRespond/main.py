@@ -104,13 +104,16 @@ class MyClient(discord.Client):
         ########### SENDING MSGs #######################
         
         #jeremy
-        if search_for(['jérémy'], message):
+        liste_chara = ['jérémy','jerem']
+        if search_for(liste_chara, message):
             await message.channel.send('ça s\'écrit \'jérémie\'')
         #ski
-        if search_for(['ascy','jérémy','jerem'], message):
+        liste_chara = ['ascy','jérémy','jerem']
+        if search_for(liste_chara, message):
             await message.channel.send(':skier:')
         #kenobi
-        if search_for(['hello there'], message):
+        liste_chara = ['hello there']
+        if search_for(liste_chara, message):
             await message.channel.send('General Kenobi')
             await message.channel.send(get(message.guild.emojis, name='faucon'))
         #combien
@@ -120,7 +123,8 @@ class MyClient(discord.Client):
         ########## Edge case in reactions ############
         
         #palaref
-        if search_for(['palaref'], message):
+        liste_chara = ['palaref']
+        if search_for(liste_chara, message):
             await message.add_reaction(get(message.guild.emojis, name='GLAREF'))
             await message.add_reaction(get(message.guild.emojis, name='NotApproved'))
         #rapgod
@@ -130,10 +134,12 @@ class MyClient(discord.Client):
         ############# YT LINKS #################
         
         #parti communiste
-        if search_for(['parti communiste'], message):
+        liste_chara = ['parti communiste']
+        if search_for(liste_chara, message):
             await message.channel.send('https://www.youtube.com/watch?v=mXWtt-rn49k')
         #tu as recu les photo
-        if search_for(['tu as recu les photos'], message):
+        liste_chara =['tu as recu les photos']
+        if search_for(liste_chara, message):
             await message.channel.send('https://www.youtube.com/watch?v=aZyEXv9nRNE')
 
         #############  REACTS #################
