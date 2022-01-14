@@ -18,3 +18,4 @@ Download the discord library
 ```
 pip install discord
 ```
+The bot's token will also be needed in a txt file (token.txt) in the ASCyRespond folder in order to link the script to the bot.
