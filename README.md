@@ -9,9 +9,12 @@ Clone the repo
 git clone https://github.com/costePaul/DiscordBot.git
 ```
 
-Créer un venv et l'activer
+Créer un venv...
 ```
 python3 -m venv env
+```
+...et l'activer
+```
 source ./env/bin/activate
 ```
 Download the discord library

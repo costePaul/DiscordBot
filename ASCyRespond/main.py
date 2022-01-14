@@ -103,6 +103,9 @@ class MyClient(discord.Client):
         
         ########### SENDING MSGs #######################
         
+        #jeremy
+        if search_for(['jérémy'], message):
+            await message.channel.send('ça s\'écrit \'jérémie\'')
         #ski
         if search_for(['ascy','jérémy','jerem'], message):
             await message.channel.send(':skier:')
