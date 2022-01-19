@@ -23,7 +23,7 @@ dico_customz_reaction = { # emoji_str : list_of str triggers
     'OurSolution': ['notre', 'commu'],
     'zrtLogo': ['zera'],
     'MV': ['mv','mistermv', 'plan q'],
-    'Aurelien': ['aure', 'auré'],
+    'Aurelien': ['aurelien', 'auré'],
     'hackerz': ['code', 'matrice', 'hack']
 }
 dico_normal_reacts = {
@@ -33,7 +33,7 @@ dico_normal_reacts = {
 
 ######## Modération ##################
 
-ban_words = ['marc serre', 'vlaminck', 'thomate', 'agent m', ':eye: :lips: :eye:', 'cringe', 'agent z', 'zemmour', 'corinne', 'agent c', 'z0zz', 'bérénice']
+ban_words = ['marc serre', 'vlaminck', 'thomate', 'agent m', ':eye::lips::eye:', 'cringe', 'agent z', 'zemmour', 'corinne', 'agent c', 'z0zz', 'bérénice']
 offset = 2 # number of last banWords not displayed
 limit_ban_cachot = 2
 people_to_watch = ['ArthurDo#6600', 'Jérémy Morlier#0866', 'aure_goose#5443']
@@ -108,7 +108,7 @@ class MyClient(discord.Client):
         if search_for(liste_chara, message):
             await message.channel.send('ça s\'écrit \'jérémie\'')
         #ski
-        liste_chara = ['ascy','jérémy','jerem']
+        liste_chara = ['ascy']
         if search_for(liste_chara, message):
             await message.channel.send(':skier:')
         #kenobi
