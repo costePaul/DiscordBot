@@ -35,10 +35,10 @@ dico_normal_reacts = {
 
 ban_words = ['marc serre', 'vlaminck', 'thomate', 'agent m', ':eye::lips::eye:', 'cringe', 'agent z', 'zemmour', 'corinne', 'agent c', 'z0zz', 'bérénice']
 offset = 2 # number of last banWords not displayed
-limit_ban_cachot = 2
-people_to_watch = ['ArthurDo#6600', 'Jérémy Morlier#0866', 'aure_goose#5443']
-corresponding_role = ['Son Lumières et Images', 'Connard des crepes', 'chef de projet BTP']
-counter = [0]*len(people_to_watch)
+# limit_ban_cachot = 2
+# people_to_watch = ['ArthurDo#6600', 'Jérémy Morlier#0866', 'aure_goose#5443']
+# corresponding_role = ['Son Lumières et Images', 'Connard des crepes', 'chef de projet BTP']
+# counter = [0]*len(people_to_watch)
 
 ######### Fonctions ###############
 
@@ -78,21 +78,21 @@ class MyClient(discord.Client):
             with open('ASCyRespond/log.txt', 'a') as f:
                 f.write(str(member)+' said :'+message.content+'\n')
             await message.channel.send('Le message précédent de '+str(member)+' enfreint les conditions d\'utilisation de ce serveur.')
-            for index,people in enumerate(people_to_watch):
-                if str(member)==people:
-                    counter[index] += 1
-                    if counter[index] == limit_ban_cachot:
-                        counter[index] = 0
-                        await member.remove_roles(get(member.guild.roles, name=corresponding_role[index]))
-                        message.channel.send('L\'utilisateur'+str(member)+' a enfreint 1à fois (de plus ?) les conditions d\'utilisation de ce serveur, il a été mis au cachot. @Paul C#9115')
+            # for index,people in enumerate(people_to_watch):
+            #     if str(member)==people:
+            #         counter[index] += 1
+            #         if counter[index] == limit_ban_cachot:
+            #             counter[index] = 0
+            #             await member.remove_roles(get(member.guild.roles, name=corresponding_role[index]))
+            #             message.channel.send('L\'utilisateur'+str(member)+' a enfreint 1à fois (de plus ?) les conditions d\'utilisation de ce serveur, il a été mis au cachot. @Paul C#9115')
 
         #libere
-        if search_for(['!libere', '!libère'],message):
-            msg = str(message.content)[8:]
-            for index,nom in enumerate(people_to_watch):
-                if bool(re.search(nom, msg)):
-                    member_name = get(message.guild.members, name=nom)
-                    await member.add_roles(get(member_name.guild.roles, name=corresponding_role[index]))
+        # if search_for(['!libere', '!libère'],message):
+        #     msg = str(message.content)[8:]
+        #     for index,nom in enumerate(people_to_watch):
+        #         if bool(re.search(nom, msg)):
+        #             member_name = get(message.guild.members, name=nom)
+        #             await member.add_roles(get(member_name.guild.roles, name=corresponding_role[index]))
 
         #ban words list
         if search_for(['!banwordslist'],message):
@@ -138,7 +138,7 @@ class MyClient(discord.Client):
         if search_for(liste_chara, message):
             await message.channel.send('https://www.youtube.com/watch?v=mXWtt-rn49k')
         #tu as recu les photo
-        liste_chara =['tu as recu les photos']
+        liste_chara =['tu as recu les photos','tu as recu les photos']
         if search_for(liste_chara, message):
             await message.channel.send('https://www.youtube.com/watch?v=aZyEXv9nRNE')
 
