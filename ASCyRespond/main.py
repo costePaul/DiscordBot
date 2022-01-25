@@ -24,7 +24,8 @@ dico_customz_reaction = { # emoji_str : list_of str triggers
     'zrtLogo': ['zera'],
     'MV': ['mv','mistermv', 'plan q'],
     'Aurelien': ['aurelien', 'auré'],
-    'hackerz': ['code', 'matrice', 'hack']
+    'hackerz': ['code', 'matrice', 'hack'],
+    'seemsgood': ['jérémie']
 }
 dico_normal_reacts = {
     '🕊️': ['bashing'],
