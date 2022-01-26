@@ -1,2 +1,5 @@
 .DS_Store
 token.txt
+Install_Certificates.command
+addCertifDiscord.py
+env/
