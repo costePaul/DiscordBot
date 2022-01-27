@@ -1,20 +1,16 @@
 #!/bin/bash
 
 botName="ASCyRespond"
-filePath="./"+$botName+"/main.py"
 
 if [ $1 = "start" ]
 then
-	source ./ASCyRespond/env/bin/activate
-	./ASCyRespond/env/bin/python3 &filePath 2>&1 ./lastOutputASCy.txt &
-	echo &! > ./pidASCy.txt
+	source ./env/bin/activate
+	./env/bin/python3 ./$botName/main.py 2> ./$botName/lastOutputASCy.txt &
+	echo $! > ./$botName/pidASCy.txt
 fi
 
 if [ $1 = "stop" ]
 then
-	source ./ASCyRespond/env/bin/deactivate
-	kill < ./pidASCy.txt
+	kill $(< ./$botName/pidASCy.txt)
 
 fi
-
-
