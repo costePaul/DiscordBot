@@ -82,7 +82,7 @@ class MyClient(discord.Client):
         ########### SENDING MSGs #######################
         
         #jeremy
-        liste_chara = ['jérémy','jerem']
+        liste_chara = ['jérémy','jerem', 'jérem', 'jerém']
         if search_for(liste_chara, message):
             await message.channel.send('ça s\'écrit \'jérémie\'')
         #ski
