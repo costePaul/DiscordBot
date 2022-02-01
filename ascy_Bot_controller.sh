@@ -8,10 +8,9 @@ start() {
         echo "Already started. PID: [$( cat ./$botName/pidASCy.txt )]"
     else
         source ./env/bin/activate
-		./env/bin/python3 ./$botName/main.py 2> ./$botName/lastOutputASCy.txt &
+		./env/bin/python3 ./$botName/main.py 2>> ./$botName/lastOutputASCy.txt &
 		echo $! > ./$botName/pidASCy.txt
         fi
-    fi
 }
 
 status() {
