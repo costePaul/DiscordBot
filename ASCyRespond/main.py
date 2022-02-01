@@ -9,7 +9,6 @@ LINK = 'https://discord.com/api/oauth2/authorize?client_id=919215340020432936&pe
 with open('./ASCyRespond/token.txt', 'r') as f:
     TOKEN = f.read()
 
-
 ############ Reacts database ###############
 
 dico_customz_reaction = { # emoji_str : list_of str triggers 
@@ -36,10 +35,10 @@ dico_normal_reacts = {
 
 ban_words = ['marc serre', 'vlaminck', 'thomate', 'agent m', ':eye::lips::eye:', 'cringe', 'agent z', 'zemmour', 'corinne', 'agent c', 'z0zz', 'bérénice']
 offset = 2 # number of last banWords not displayed
-# limit_ban_cachot = 2
-# people_to_watch = ['ArthurDo#6600', 'Jérémy Morlier#0866', 'aure_goose#5443']
-# corresponding_role = ['Son Lumières et Images', 'Connard des crepes', 'chef de projet BTP']
-# counter = [0]*len(people_to_watch)
+limit_ban_cachot = 2 # for test purpose (10 normally)
+people_to_watch = ['ArthurDo#6600', 'Jérémy Morlier#0866', 'aure_goose#5443']
+corresponding_role = ['Son Lumières et Images', 'Connard des crepes', 'chef de projet BTP']
+counter = [0]*len(people_to_watch)
 
 ######### Fonctions ###############
 
@@ -79,28 +78,30 @@ class MyClient(discord.Client):
             with open('ASCyRespond/log.txt', 'a') as f:
                 f.write(str(member)+' said :'+message.content+'\n')
             await message.channel.send('Le message précédent de '+str(member)+' enfreint les conditions d\'utilisation de ce serveur.')
-            # for index,people in enumerate(people_to_watch):
-            #     if str(member)==people:
-            #         counter[index] += 1
-            #         if counter[index] == limit_ban_cachot:
-            #             counter[index] = 0
-            #             await member.remove_roles(get(member.guild.roles, name=corresponding_role[index]))
-            #             message.channel.send('L\'utilisateur'+str(member)+' a enfreint 1à fois (de plus ?) les conditions d\'utilisation de ce serveur, il a été mis au cachot. @Paul C#9115')
+            for index,people in enumerate(people_to_watch):
+                if str(member)==people:
+                    counter[index] += 1
+                    if counter[index] == limit_ban_cachot:
+                        counter[index] = 0
+                        role = get(member.guild.roles, name=corresponding_role[index])
+                        await member.remove_roles(role)
+                        print(member+' lost role : '+role)
+                        message.channel.send('L\'utilisateur'+str(member)+' a enfreint 10 fois (de plus ?) les conditions d\'utilisation de ce serveur, il a été mis au cachot. @Paul C#9115')
 
-        #libere
-        # if search_for(['!libere', '!libère'],message):
-        #     msg = str(message.content)[8:]
-        #     for index,nom in enumerate(people_to_watch):
-        #         if bool(re.search(nom, msg)):
-        #             member_name = get(message.guild.members, name=nom)
-        #             await member.add_roles(get(member_name.guild.roles, name=corresponding_role[index]))
+        # libere
+        if search_for(['!libere', '!libère'],message):
+            msg = str(message.content)[8:]
+            for index,nom in enumerate(people_to_watch):
+                if bool(re.search(nom, msg)):
+                    member_name = get(message.guild.members, name=nom)
+                    await member.add_roles(get(member_name.guild.roles, name=corresponding_role[index]))
 
         #ban words list
         if search_for(['!banwordslist'],message):
             await message.channel.send(str(ban_words[:-offset]))
         #ban count
-        # if search_for(['!bancount'],message):
-        #     await message.channel.send(str(ban_words[:-1]))
+        if search_for(['!bancount'],message):
+            await message.channel.send(str(ban_words[:-1]))
         
         ########### SENDING MSGs #######################
         
