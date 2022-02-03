@@ -21,6 +21,11 @@ Download the discord library
 ```
 pip install discord
 ```
+Download other libraries
+```
+pip install beautifulsoup4
+pip install feedparser
+```
 The bot's token will also be needed in a txt file (token.txt) in the ASCyRespond folder in order to link the script to the bot.
 
 The file `install_certifi.py` can be run to resolve issues with accepting Discord certificate to establish connexion.
