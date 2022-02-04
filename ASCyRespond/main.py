@@ -133,9 +133,12 @@ class MyClient(discord.Client):
         if str(get(message.guild.emojis, name='COMBIEN')) in message.content:
             await message.reply(random.randint(1,100000000))
         #rak
-        liste_chara = ['!rak', 'rakmenu', 'j\'ai faim']
+        liste_chara = ['!rak', '!menu', 'j\'ai faim']
         if search_for(liste_chara, message):
-            await message.reply(menu_RAK())
+            await message.channel.send(menu_RAK())
+        liste_chara = ['!lienSiteRak']
+        if search_for(liste_chara, message):
+            await message.reply('http://services.imt-atlantique.fr/rak/')
 
         ########## Edge case in reactions ############
         
