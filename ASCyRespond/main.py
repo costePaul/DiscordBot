@@ -89,7 +89,7 @@ class MyClient(discord.Client):
         liste_chara = ['!rak', '!menu', 'j\'ai faim']
         if search_for(liste_chara, message):
             await message.channel.send(menu_RAK())
-        liste_chara = ['!lienSiteRak']
+        liste_chara = ['!lienrak']
         if search_for(liste_chara, message):
             await message.reply('http://services.imt-atlantique.fr/rak/')
 
