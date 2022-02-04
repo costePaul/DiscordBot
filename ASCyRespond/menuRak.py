@@ -21,16 +21,17 @@ def menu_RAK() :
         if (todayIndex < 5) and (balise.string == frenchDays[todayIndex + 1]) :
             debutPlat = False  
 
-    if debutPlat :
-        if balise.name == 'a' :
-            plats.append(balise.string)
-        if balise.name == 'strong' :
-            plats.append("\n" + balise.string + "\n")
+        if debutPlat :
+            if balise.name == 'a' :
+                plats.append(balise.string)
+            if balise.name == 'strong' :
+                plats.append("\n" + balise.string + "\n")
 
-    if balise.string == today :
-        debutPlat = True
-    message = today + " : " + str(curr_date.day) + "/" + str(curr_date.month) + "/" +\
-         str(curr_date.year) + "\n" + "Menu du jour : \n"
+        if balise.string == today :
+            debutPlat = True
+            
+       
+    message = today + " : " + str(curr_date.day) + "/" + str(curr_date.month) + "/" + str(curr_date.year) + "\n" + "Menu du jour : \n"
     for plat in plats :
         message += plat + "\n"
     return message
