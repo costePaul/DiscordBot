@@ -6,3 +6,4 @@ env/
 pidASCY.txt
 lastOutputASCy.txt
 ASCyRespond/log.txt
+ASCyRespond/__pycache__

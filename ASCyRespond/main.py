@@ -2,10 +2,7 @@ import discord
 import re
 import random
 from discord.utils import get
-import feedparser
-import bs4
-from datetime import date
-import calendar
+from menuRak import menu_RAK
 
 # to add the bot to a server
 LINK = 'https://discord.com/api/oauth2/authorize?client_id=919215340020432936&permissions=534723950656&scope=bot'
@@ -46,55 +43,11 @@ offset = 2 # number of last banWords not displayed
 def search_for(liste_str, message):
     return any(bool(re.search(word, message.content.lower())) for word in liste_str)
 
-def menu_RAK() :
-  curr_date = date.today()
-  days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-  frenchDays = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
-  todayIndex = days.index(calendar.day_name[curr_date.weekday()])
-  today = frenchDays[todayIndex]
-
-  rakFeed = feedparser.parse("http://services.imt-atlantique.fr/rak/rss/menus.xml")
-  entry = rakFeed.entries[1]
-  html_doc = entry.description
-  soup = bs4.BeautifulSoup(html_doc, 'html.parser')
-
-  plats = []
-  debutPlat = False
-  for balise in soup :
-    if (todayIndex < 5) and (balise.string == frenchDays[todayIndex + 1]) :
-        debutPlat = False  
-
-    if debutPlat :
-      if balise.name == 'a' :
-        plats.append(balise.string)
-      if balise.name == 'strong' :
-        plats.append("\n" + balise.string + "\n")
-
-    if balise.string == today :
-        debutPlat = True
-  message = today + " : " + str(curr_date.day) + "/" + str(curr_date.month) + "/" + str(curr_date.year) + "\n"
-  + "Menu du jour : " + "\n"
-  for plat in plats :
-    message += plat + "\n"
-  return message
 ########## Main class #############
 
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Logged on as', self.user)
-
-    ########## EDIT ##############
-    async def on_message_edit(self, message):
-        # don't respond to ourselves
-        if message.author == self.user:
-            return
-        #ban words
-        if search_for(ban_words, message):
-            await message.delete()
-            member = message.author
-            with open('ASCyRespond/log.txt', 'a') as f:
-                f.write(str(member)+' said :'+message.content+'\n')
-            await message.channel.send('Le message précédent de '+str(member)+' enfreint les conditions d\'utilisation de ce serveur.')
 
     ########### SEND ################    
     async def on_message(self, message):
