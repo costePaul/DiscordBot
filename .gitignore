@@ -4,6 +4,8 @@ Install_Certificates.command
 addCertifDiscord.py
 env/
 pidASCY.txt
+pidRAK.txt
 lastOutputASCy.txt
-ASCyRespond/log.txt
-ASCyRespond/__pycache__
+lastOutputRAK.txt
+log.txt
+__pycache__
