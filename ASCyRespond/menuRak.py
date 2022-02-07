@@ -18,7 +18,7 @@ def menu_RAK() :
     plats = []
     debutPlat = False
     for balise in soup :
-        if (todayIndex < 5) and (balise.string == frenchDays[todayIndex + 1]) :
+        if (todayIndex < 6) and (balise.string == frenchDays[todayIndex + 1]) :
             debutPlat = False  
 
         if debutPlat :
