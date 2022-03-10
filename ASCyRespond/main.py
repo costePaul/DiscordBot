@@ -111,9 +111,17 @@ class MyClient(discord.Client):
         if search_for(liste_chara, message):
             await message.channel.send('https://www.youtube.com/watch?v=mXWtt-rn49k')
         #tu as recu les photo
-        liste_chara =['tu as recu les photos','tu as recu les photos']
+        liste_chara =['tu as reçu les photos','tu as recu les photos']
         if search_for(liste_chara, message):
             await message.channel.send('https://www.youtube.com/watch?v=aZyEXv9nRNE')
+
+        liste_chara =['j\'ai faim']
+        if search_for(liste_chara, message):
+            await message.channel.send('https://www.youtube.com/watch?v=9JB2FK38CaY')
+
+        liste_chara =['g@m3rz']
+        if search_for(liste_chara, message):
+            await message.channel.send('https://www.youtube.com/watch?v=5jqRg90ApdM')
 
         #############  REACTS #################
         for key,value in dico_customz_reaction.items():
