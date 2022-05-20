@@ -123,6 +123,10 @@ class MyClient(discord.Client):
         if search_for(liste_chara, message):
             await message.channel.send('https://www.youtube.com/watch?v=5jqRg90ApdM')
 
+        liste_chara =['oskour']
+        if search_for(liste_chara, message):
+            await message.channel.send('https://www.youtube.com/watch?v=V2ZkgEAhRUY')
+
         #############  REACTS #################
         for key,value in dico_customz_reaction.items():
             if search_for(value, message):
