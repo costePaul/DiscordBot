@@ -20,7 +20,7 @@ dico_customz_reaction = { # emoji_str : list_of str triggers
     'BDD': ['bdd'],
     'PALU': ['la doc'],
     'nantais': ['nantais', 'nantes'],
-    'IMFAT': ['imsat','imfat'],
+    #'IMFAT': ['imsat','imfat'],
     'OurSolution': ['notre', 'commu'],
     'zrtLogo': ['zera'],
     'MV': ['mv','mistermv', 'plan q'],
@@ -35,8 +35,8 @@ dico_normal_reacts = {
 
 ######## Modération ##################
 
-ban_words = ['marc serre', 'vlaminck', 'thomate', 'agent m', ':eye::lips::eye:', 'cringe', 'agent z', 'zemmour', 'corinne', 'agent c', 'z0zz', 'bérénice']
-offset = 2 # number of last banWords not displayed
+ban_words = ['marc serre', 'vlaminck', 'thomate', 'agent m', 'cringe', 'agent z', 'corinne', 'agent c']
+# offset = 2 # number of last banWords not displayed
 
 ######### Fonctions ###############
 
@@ -70,9 +70,9 @@ class MyClient(discord.Client):
         ########### SENDING MSGs #######################
         
         #jeremy
-        liste_chara = ['jérémy','jerem', 'jérem', 'jerém']
-        if search_for(liste_chara, message):
-            await message.channel.send('ça s\'écrit \'jérémie\'')
+        # liste_chara = ['jérémy','jerem', 'jérem', 'jerém']
+        # if search_for(liste_chara, message):
+        #     await message.channel.send('ça s\'écrit \'jérémie\'')
         #ski
         liste_chara = ['ascy']
         if search_for(liste_chara, message):
